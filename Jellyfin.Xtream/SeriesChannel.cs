@@ -16,10 +16,12 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Jellyfin.Xtream.Client.Models;
+using Jellyfin.Xtream.Providers;
 using Jellyfin.Xtream.Service;
 using MediaBrowser.Controller.Channels;
 using MediaBrowser.Controller.Entities;
@@ -138,6 +140,7 @@ public class SeriesChannel(ILogger<SeriesChannel> logger) : IChannel, IDisableMe
             ImageUrl = series.Cover,
             Name = parsedName.Title,
             People = GetPeople(series.Cast),
+            ProviderIds = { { XtreamSeriesProvider.ProviderName, series.SeriesId.ToString(CultureInfo.InvariantCulture) } },
             Tags = new List<string>(parsedName.Tags),
             Type = ChannelItemType.Folder,
         };
@@ -189,6 +192,7 @@ public class SeriesChannel(ILogger<SeriesChannel> logger) : IChannel, IDisableMe
             Name = name,
             Overview = overview,
             People = GetPeople(serie.Cast),
+            ProviderIds = { { XtreamSeriesProvider.ProviderName, $"{seriesId}:{seasonId}" } },
             Tags = tags,
             Type = ChannelItemType.Folder,
         };
@@ -225,6 +229,7 @@ public class SeriesChannel(ILogger<SeriesChannel> logger) : IChannel, IDisableMe
             Name = parsedName.Title,
             Overview = episode.Info?.Plot,
             People = GetPeople(serie.Cast),
+            ProviderIds = { { XtreamSeriesProvider.ProviderName, episode.EpisodeId.ToString(CultureInfo.InvariantCulture) } },
             Tags = new(parsedName.Tags),
             Type = ChannelItemType.Media,
         };
