@@ -229,7 +229,7 @@ public class SeriesChannel(ILogger<SeriesChannel> logger) : IChannel, IDisableMe
             Name = parsedName.Title,
             Overview = episode.Info?.Plot,
             People = GetPeople(serie.Cast),
-            ProviderIds = { { XtreamSeriesProvider.ProviderName, episode.EpisodeId.ToString(CultureInfo.InvariantCulture) } },
+            ProviderIds = { { XtreamVodProvider.ProviderName, episode.EpisodeId.ToString(CultureInfo.InvariantCulture) } },
             Tags = new(parsedName.Tags),
             Type = ChannelItemType.Media,
         };
