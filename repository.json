@@ -9,11 +9,11 @@
     "versions": [
       {
         "version": "0.7.2.0",
-        "changelog": "Fix Swiftfin tvOS playback for series episodes",
+        "changelog": "Fix Swiftfin tvOS playback - use XtreamVodProvider for all series content",
         "targetAbi": "10.10.7.0",
-        "sourceUrl": "https://github.com/ashikslab/Jellyfin.Xtream/releases/download/test0/jellyfin-xtream_0.7.2.0.zip",
-        "checksum": "a47b4458aeb6aaae5660809658e9f428",
-        "timestamp": "2025-10-15T19:05:00Z"
+        "sourceUrl": "https://github.com/ashikslab/Jellyfin.Xtream/releases/download/test1/jellyfin-xtream_0.7.2.0.zip",
+        "checksum": "c465e9431d19c72239ff85a829b276dd",
+        "timestamp": "2025-10-15T21:08:00Z"
       }
     ]
   }
