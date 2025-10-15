@@ -60,7 +60,7 @@ public class SeriesChannel(ILogger<SeriesChannel> logger) : IChannel, IDisableMe
         return new InternalChannelFeatures
         {
             ContentTypes = [
-                ChannelMediaContentType.Episode,
+                ChannelMediaContentType.Movie,
             ],
 
             MediaTypes = [
@@ -218,7 +218,7 @@ public class SeriesChannel(ILogger<SeriesChannel> logger) : IChannel, IDisableMe
 
         return new()
         {
-            ContentType = ChannelMediaContentType.Episode,
+            ContentType = ChannelMediaContentType.Movie,
             DateCreated = DateTimeOffset.FromUnixTimeSeconds(episode.Added).DateTime,
             Genres = GetGenres(serie.Genre),
             Id = StreamService.ToGuid(StreamService.EpisodePrefix, 0, 0, episode.EpisodeId).ToString(),
