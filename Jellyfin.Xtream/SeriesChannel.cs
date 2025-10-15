@@ -140,7 +140,7 @@ public class SeriesChannel(ILogger<SeriesChannel> logger) : IChannel, IDisableMe
             ImageUrl = series.Cover,
             Name = parsedName.Title,
             People = GetPeople(series.Cast),
-            ProviderIds = { { XtreamSeriesProvider.ProviderName, series.SeriesId.ToString(CultureInfo.InvariantCulture) } },
+            ProviderIds = { { XtreamVodProvider.ProviderName, series.SeriesId.ToString(CultureInfo.InvariantCulture) } },
             Tags = new List<string>(parsedName.Tags),
             Type = ChannelItemType.Folder,
         };
@@ -192,7 +192,7 @@ public class SeriesChannel(ILogger<SeriesChannel> logger) : IChannel, IDisableMe
             Name = name,
             Overview = overview,
             People = GetPeople(serie.Cast),
-            ProviderIds = { { XtreamSeriesProvider.ProviderName, $"{seriesId}:{seasonId}" } },
+            ProviderIds = { { XtreamVodProvider.ProviderName, $"{seriesId}:{seasonId}" } },
             Tags = tags,
             Type = ChannelItemType.Folder,
         };
