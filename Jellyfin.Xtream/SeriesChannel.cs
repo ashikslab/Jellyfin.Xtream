@@ -60,7 +60,7 @@ public class SeriesChannel(ILogger<SeriesChannel> logger) : IChannel, IDisableMe
         return new InternalChannelFeatures
         {
             ContentTypes = [
-                ChannelMediaContentType.Movie,
+                ChannelMediaContentType.Episode,
             ],
 
             MediaTypes = [
@@ -140,7 +140,7 @@ public class SeriesChannel(ILogger<SeriesChannel> logger) : IChannel, IDisableMe
             ImageUrl = series.Cover,
             Name = parsedName.Title,
             People = GetPeople(series.Cast),
-            ProviderIds = { { XtreamVodProvider.ProviderName, series.SeriesId.ToString(CultureInfo.InvariantCulture) } },
+            ProviderIds = { { XtreamSeriesProvider.ProviderName, series.SeriesId.ToString(CultureInfo.InvariantCulture) } },
             Tags = new List<string>(parsedName.Tags),
             Type = ChannelItemType.Folder,
         };
@@ -192,7 +192,7 @@ public class SeriesChannel(ILogger<SeriesChannel> logger) : IChannel, IDisableMe
             Name = name,
             Overview = overview,
             People = GetPeople(serie.Cast),
-            ProviderIds = { { XtreamVodProvider.ProviderName, $"{seriesId}:{seasonId}" } },
+            ProviderIds = { { XtreamSeriesProvider.ProviderName, $"{seriesId}:{seasonId}" } },
             Tags = tags,
             Type = ChannelItemType.Folder,
         };
@@ -218,7 +218,7 @@ public class SeriesChannel(ILogger<SeriesChannel> logger) : IChannel, IDisableMe
 
         return new()
         {
-            ContentType = ChannelMediaContentType.Movie,
+            ContentType = ChannelMediaContentType.Episode,
             DateCreated = DateTimeOffset.FromUnixTimeSeconds(episode.Added).DateTime,
             Genres = GetGenres(serie.Genre),
             Id = StreamService.ToGuid(StreamService.EpisodePrefix, 0, 0, episode.EpisodeId).ToString(),
@@ -229,7 +229,7 @@ public class SeriesChannel(ILogger<SeriesChannel> logger) : IChannel, IDisableMe
             Name = parsedName.Title,
             Overview = episode.Info?.Plot,
             People = GetPeople(serie.Cast),
-            ProviderIds = { { XtreamVodProvider.ProviderName, episode.EpisodeId.ToString(CultureInfo.InvariantCulture) } },
+            ProviderIds = { { XtreamSeriesProvider.ProviderName, episode.EpisodeId.ToString(CultureInfo.InvariantCulture) } },
             Tags = new(parsedName.Tags),
             Type = ChannelItemType.Media,
         };

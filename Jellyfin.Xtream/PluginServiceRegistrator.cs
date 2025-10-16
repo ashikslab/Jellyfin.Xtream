@@ -34,5 +34,6 @@ public class PluginServiceRegistrator : IPluginServiceRegistrator
         serviceCollection.AddSingleton<IChannel, SeriesChannel>();
         serviceCollection.AddSingleton<IChannel, VodChannel>();
         serviceCollection.AddSingleton<IPreRefreshProvider, XtreamVodProvider>();
+        serviceCollection.AddSingleton<IPreRefreshProvider, XtreamSeriesProvider>();
     }
 }
