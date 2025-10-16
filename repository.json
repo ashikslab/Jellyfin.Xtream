@@ -1,19 +1,43 @@
 [
   {
     "category": "Live TV",
+    "description": "Stream Live IPTV, Video On-Demand, and Series from an Xtream-compatible server using this plugin.\n",
     "guid": "5d774c35-8567-46d3-a950-9bb8227a0c5d",
-    "name": "Jellyfin Xtream",
-    "description": "Stream Live IPTV, Video On-Demand, and Series from an Xtream-compatible server using this plugin.",
-    "owner": "ashikslab",
+    "name": "Jellyfin Xtream for jellypig",
     "overview": "Stream content from an Xtream-compatible server.",
+    "owner": "ashikslab",
     "versions": [
       {
-        "version": "0.7.2.0",
-        "changelog": "Fix Swiftfin tvOS playback - use XtreamVodProvider for all series content",
+        "changelog": "## Jellyfin Xtream for jellypig - Pure Upstream Logic\n\nThis release reverts all custom modifications and returns to Kevin's original upstream logic.\n\n### Version Info\n- **Version**: 0.7.2.0001 (upstream 0.7.2.0 + ashik fork suffix)\n- **Name**: Jellyfin Xtream for jellypig\n- **Purpose**: Testing with jellypig tvOS client fix\n\n### Changes from Previous Test Builds\n- ✅ Removed XtreamSeriesProvider (custom addition)\n- ✅ Series episodes use `ContentType.Episode` (not Movie)\n- ✅ Removed all custom ProviderIds\n- ✅ Plugin code now 100% matches [Kevinjil/Jellyfin.Xtream](https://github.com/Kevinjil/Jellyfin.Xtream) upstream\n\n### Why This Works\nThe bug fix is now in the jellypig tvOS client (removing `.program` from image loading logic), so the plugin no longer needs workarounds.\n\n### Installation\nAdd repository: `https://ashikslab.github.io/Jellyfin.Xtream/repository.json`\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+        "checksum": "726052ad6ffd2728cc1211d8630479bd",
+        "sourceUrl": "https://github.com/ashikslab/Jellyfin.Xtream/releases/download/v0.7.2.0001/jellyfin-xtream-for-jellypig_0.7.2.1.zip",
         "targetAbi": "10.10.7.0",
+        "timestamp": "2025-10-16T10:07:05Z",
+        "version": "0.7.2.0001"
+      },
+      {
+        "changelog": "Initial release",
+        "checksum": "5a9df363b92581b4ac6500ac98d26bea",
+        "sourceUrl": "https://github.com/ashikslab/Jellyfin.Xtream/releases/download/v1.0.0/jellyfin-xtream_0.7.2.0.zip",
+        "targetAbi": "10.10.7.0",
+        "timestamp": "2025-10-15T16:11:37Z",
+        "version": "0.7.2.0"
+      },
+      {
+        "changelog": "Test build with XtreamSeriesProvider removed. All series content now uses XtreamVodProvider for full VOD compatibility with Swiftfin tvOS.",
+        "checksum": "",
         "sourceUrl": "https://github.com/ashikslab/Jellyfin.Xtream/releases/download/test1/jellyfin-xtream_0.7.2.0.zip",
-        "checksum": "c465e9431d19c72239ff85a829b276dd",
-        "timestamp": "2025-10-15T21:08:00Z"
+        "targetAbi": "10.10.7.0",
+        "timestamp": "2025-10-15T20:11:31Z",
+        "version": "0.7.2.0"
+      },
+      {
+        "changelog": "Test build with Swiftfin tvOS series playback fix. Series episodes now appear as Movies to work around Swiftfin client limitation.",
+        "checksum": "",
+        "sourceUrl": "https://github.com/ashikslab/Jellyfin.Xtream/releases/download/test0/jellyfin-xtream_0.7.2.0.zip",
+        "targetAbi": "10.10.7.0",
+        "timestamp": "2025-10-15T18:10:39Z",
+        "version": "0.7.2.0"
       }
     ]
   }
